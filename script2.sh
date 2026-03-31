@@ -1,16 +1,19 @@
 #!/bin/bash
+# Script 2: FOSS Package Inspector
 
-PACKAGE="git"
+PACKAGE="vlc"
 
-if dpkg -l | grep -q $PACKAGE; then
-    echo "$PACKAGE is installed"
+if dpkg -l | grep -qw $PACKAGE; then
+    echo "$PACKAGE is installed."
+    dpkg -l | grep $PACKAGE
 else
-    echo "$PACKAGE is NOT installed"
+    echo "$PACKAGE is NOT installed."
 fi
 
 case $PACKAGE in
-    git) echo "Git is a version control system" ;;
-    python) echo "Python programming language" ;;
-    vlc) echo "VLC media player" ;;
+    vlc) echo "VLC: a free multimedia player that plays almost all formats" ;;
+    firefox) echo "Firefox: open-source browser for privacy and freedom" ;;
+    git) echo "Git: version control system built for developers" ;;
+    apache2) echo "Apache: web server powering the internet" ;;
     *) echo "Unknown package" ;;
 esac
